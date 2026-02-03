@@ -2,9 +2,8 @@
   return (
     <section id="sobre">
       <h2>Sobre</h2>
-      <p className="lead">Estudante do 3º semestre de Análise e Desenvolvimento de Sistemas com foco total em Front-End. Especialista em criar interfaces modernas e responsivas utilizando React, HTML, CSS e JavaScript.
-
-Meu objetivo é entregar aplicações funcionais e intuitivas, sempre priorizando código limpo, componentização e alta performance. Sou colaborativo, organizado e busco constantemente novas tecnologias para elevar o nível das minhas entregas. Atualmente, procuro oportunidades de estágio ou vaga júnior para aplicar essas habilidades em projetos reais.</p>
+      <p className="lead">Em transição de carreira da área administrativa para o desenvolvimento de software. Estudante do 3º semestre de Análise e Desenvolvimento de Sistemas, uno a organização e visão de processos da minha experiência anterior com a capacidade técnica de criar soluções.</p>
+      <p className="lead">Embora tenha foco recente em Front-End com React, possuo projetos práticos em Python e automação, demonstrando versatilidade para atuar em diferentes frentes. Busco minha primeira oportunidade na área de tecnologia (Estágio ou Júnior) para aplicar minha dedicação e vontade de aprender, seja no Front-End, Back-End ou Full Stack.</p>
       <div className="grid">
         <div className="card">
           <h3>Stack & ferramentas</h3>
