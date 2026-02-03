@@ -1,10 +1,53 @@
-﻿import Badge from './Badge.jsx';
+import { useEffect, useMemo, useState } from 'react';
+import Badge from './Badge.jsx';
 
 function Hero({ email, badges }) {
+  const fullText = useMemo(
+    () => 'Olá, sou Gustavo Henrique.\nConstruo experiências digitais.',
+    []
+  );
+  const [typedText, setTypedText] = useState('');
+  const [showHighlight, setShowHighlight] = useState(false);
+
+  const typedLines = typedText.split('\n');
+  const isTypingDone = typedText.length >= fullText.length;
+
+  useEffect(() => {
+    let index = 0;
+    const intervalId = setInterval(() => {
+      index += 1;
+      setTypedText(fullText.slice(0, index));
+      if (index >= fullText.length) {
+        clearInterval(intervalId);
+      }
+    }, 40);
+
+    return () => clearInterval(intervalId);
+  }, [fullText]);
+
+  useEffect(() => {
+    if (isTypingDone) {
+      const timeoutId = setTimeout(() => setShowHighlight(true), 120);
+      return () => clearTimeout(timeoutId);
+    }
+    setShowHighlight(false);
+    return undefined;
+  }, [isTypingDone]);
+
   return (
     <section className="hero">
       <div>
-        <h1>Olá, sou Gustavo Henrique.<br />Construo experiências digitais.</h1>
+        <h1 className="typing-title">
+          {typedLines.map((line, i) => (
+            <span key={`${line}-${i}`} className="typing-line">
+              {line}
+              {i < typedLines.length - 1 ? <br /> : null}
+            </span>
+          ))}
+          {typedText.length < fullText.length ? (
+            <span className="typing-cursor" aria-hidden="true">|</span>
+          ) : null}
+        </h1>
         <p>Desenvolvedor focado em criar produtos ágeis, bonitos e responsivos. Trabalho com front-end moderno, prototipação e soluções focadas em negócio.</p>
         <div className="hero-actions">
           <a className="primary-btn" href="#projetos">Ver projetos</a>
@@ -16,7 +59,7 @@ function Hero({ email, badges }) {
           ))}
         </div>
       </div>
-      <div className="panel">
+      <div className={`panel hero-panel ${showHighlight ? 'is-visible' : ''}`}>
         <img className="hero-image" src="/images/LexIA.png" alt="Tela do LexIA — Constituição Inteligente" />
         <h3>Em destaque</h3>
         <p><strong>LexIA — Constituição Inteligente</strong></p>

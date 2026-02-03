@@ -22,6 +22,7 @@ const projects = [
     title: 'Loja de Joias — E.V Pratas & Acessorios',
     desc: 'Catálogo de joias e bijuterias com filtros por categoria, sacola interativa e finalização de pedido via WhatsApp.',
     badges: ['React 18', 'Vite', 'Tailwind CSS', 'React Icons'],
+    liveUrl: 'https://loja-de-bijuteria.vercel.app/',
     repoUrl: 'https://github.com/gustavoh-dev/Loja-De-Bijuteria',
   },
 ];
